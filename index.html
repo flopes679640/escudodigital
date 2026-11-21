@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escudo Digital – Segurança Digital para a Comunidade</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Barra de Acessibilidade (Desenho Universal) -->
+  <nav class="a11y-bar" aria-label="Barra de acessibilidade">
+    <span>Acessibilidade:</span>
+    <div class="a11y-controls">
+      <button type="button" class="a11y-btn" id="btnFonteMenos" aria-label="Diminuir tamanho da letra">A-</button>
+      <button type="button" class="a11y-btn" id="btnFonteMais" aria-label="Aumentar tamanho da letra">A+</button>
+      <button type="button" class="a11y-btn" id="btnContraste" aria-pressed="false">Alto Contraste</button>
+      <button type="button" class="a11y-btn" id="btnOuvir">🔊 Ouvir Página</button>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <h1>🛡️ Escudo Digital</h1>
+    <p>Portal gratuito de orientação e treinamento prático contra golpes digitais na nossa comunidade.</p>
+  </header>
+
+  <main class="container" id="conteudoPrincipal">
+
+    <!-- ETAPA 1: Identificação rápida para registro de acesso -->
+    <section class="card" id="secaoEntrada">
+      <h2>Bem-vindo(a)! Identifique-se para acessar</h2>
+      <p>Em menos de 3 minutos você conhece os golpes mais comuns da internet e testa seus reflexos no nosso quiz interativo.</p>
+
+      <div id="erroEntrada" class="msg-erro hidden" role="alert"></div>
+
+      <form id="formEntrada">
+        <label for="nomeUsuario">Seu nome completo *</label>
+        <input type="text" id="nomeUsuario" name="nome" placeholder="Ex.: Maria Aparecida Silva" required autocomplete="name">
+
+        <label for="faixaEtaria">Faixa etária (opcional)</label>
+        <select id="faixaEtaria" name="faixa_etaria">
+          <option value="Não informada">Prefiro não informar</option>
+          <option value="Até 25 anos">Até 25 anos</option>
+          <option value="26 a 40 anos">26 a 40 anos</option>
+          <option value="41 a 59 anos">41 a 59 anos</option>
+          <option value="60 anos ou mais">60 anos ou mais</option>
+        </select>
+
+        <button type="submit" class="btn btn-primary" id="btnEntrar">Acessar o Portal Gratuito</button>
+      </form>
+
+      <p class="aviso-privacidade">
+        🔒 <strong>Privacidade:</strong> seu nome e horário de acesso são registrados apenas para comprovação acadêmica de impacto comunitário (Atividade Extensionista – UNINTER). Nenhum dado bancário, senha ou telefone é solicitado.
+      </p>
+    </section>
+
+    <!-- CONTEÚDO DO PORTAL (liberado após identificação) -->
+    <div id="areaPortal" class="hidden">
+
+      <div class="boas-vindas">
+        <div>
+          <strong>Olá, <span id="spanNome"></span>!</strong><br>
+          <small>Acesso registrado em <span id="spanDataHora"></span></small>
+        </div>
+        <div class="boas-vindas-acoes">
+          <span class="badge">Portal Ativo</span>
+          <a href="./?novo=1" class="link-discreto">Trocar usuário</a>
+        </div>
+      </div>
+
+      <!-- SEÇÃO 2: Guias rápidos dos 5 golpes -->
+      <section class="card">
+        <h2>1. Os 5 golpes mais comuns (toque para ler)</h2>
+
+        <details class="golpe-item" open>
+          <summary>💬 Golpe do Falso Parente no WhatsApp</summary>
+          <div class="golpe-body">
+            <p><strong>Como funciona:</strong> um golpista usa a foto de um familiar com um número novo dizendo "troquei de celular" e pede um Pix urgente para pagar uma conta.</p>
+            <p><strong>Como se proteger:</strong> nunca faça Pix apenas por mensagem. Faça uma <strong>ligação de vídeo ou de voz</strong> para o número antigo da pessoa antes de transferir qualquer valor.</p>
+          </div>
+        </details>
+
+        <details class="golpe-item">
+          <summary>🔗 Links Falsos (Phishing) de Bancos, Correios e Promoções</summary>
+          <div class="golpe-body">
+            <p><strong>Como funciona:</strong> mensagens por SMS, e-mail ou WhatsApp com urgência ("sua entrega foi taxada", "sua conta será bloqueada hoje") levando a sites falsos que roubam senhas e cartões.</p>
+            <p><strong>Como se proteger:</strong> desconfie de urgência. Não clique no link da mensagem — abra você mesmo o aplicativo oficial do banco ou dos Correios.</p>
+          </div>
+        </details>
+
+        <details class="golpe-item">
+          <summary>📞 Falsa Central Telefônica de Banco</summary>
+          <div class="golpe-body">
+            <p><strong>Como funciona:</strong> alguém liga fingindo ser da segurança do banco dizendo que houve uma compra suspeita e pede para você instalar um aplicativo ou digitar códigos/senhas para "cancelar".</p>
+            <p><strong>Como se proteger:</strong> bancos <strong>nunca</strong> pedem senhas, códigos de SMS, transferências de "estorno" nem a entrega do cartão a um motoboy. Desligue e ligue de outro aparelho para o número atrás do seu cartão.</p>
+          </div>
+        </details>
+
+        <details class="golpe-item">
+          <summary>📱 Clonagem / Roubo de Conta do WhatsApp</summary>
+          <div class="golpe-body">
+            <p><strong>Como funciona:</strong> o golpista finge ser de um anúncio, sorteio ou pesquisa e pede um código de 6 dígitos que acabou de chegar no seu SMS.</p>
+            <p><strong>Como se proteger:</strong> nunca informe códigos recebidos por SMS a ninguém e ative a <strong>Confirmação em Duas Etapas</strong> no menu <em>Configurações → Conta</em> do WhatsApp.</p>
+          </div>
+        </details>
+
+        <details class="golpe-item">
+          <summary>💸 Falso Pix Agendado e Boletos Adulterados</summary>
+          <div class="golpe-body">
+            <p><strong>Como funciona:</strong> comprovantes falsos de Pix (ou Pix agendado e depois cancelado) e boletos alterados que direcionam o dinheiro para a conta de um terceiro.</p>
+            <p><strong>Como se proteger:</strong> ao receber Pix, confira sempre se o saldo <strong>realmente entrou no extrato</strong>. Ao pagar boletos, verifique sempre o nome e o CNPJ do beneficiário antes de confirmar.</p>
+          </div>
+        </details>
+      </section>
+
+      <!-- SEÇÃO 3: Quiz Interativo -->
+      <section class="card" id="secaoQuiz">
+        <h2>2. Quiz Prático: É Golpe ou é Seguro?</h2>
+        <p>Leia cada situação do dia a dia e escolha a resposta correta:</p>
+
+        <div class="quiz-box" id="quizContainer">
+          <div class="quiz-progresso" id="quizProgresso"></div>
+          <div class="quiz-cenario" id="quizCenario"></div>
+
+          <div class="quiz-acoes" id="quizBotoes">
+            <button type="button" class="btn btn-danger" onclick="responderQuiz(true)">🚨 É GOLPE</button>
+            <button type="button" class="btn btn-success" onclick="responderQuiz(false)">✅ É SEGURO</button>
+          </div>
+
+          <div id="quizRetorno" class="quiz-retorno hidden"></div>
+          <button type="button" class="btn btn-primary hidden" id="btnProxima" style="margin-top: 1rem;" onclick="proximaPergunta()">Próxima Pergunta →</button>
+        </div>
+
+        <div id="quizResultado" class="hidden" style="margin-top: 1rem;"></div>
+      </section>
+
+      <!-- SEÇÃO 4: Feedback da Comunidade -->
+      <section class="card" id="secaoFeedback">
+        <h2>3. Avalie o Portal (Etapa Final)</h2>
+
+        <div id="avisoFeedbackBloqueado" class="aviso-bloqueio">
+          🔒 Responda às 5 perguntas do quiz acima para liberar sua avaliação e concluir sua participação.
+        </div>
+
+        <div id="blocoFormFeedback" class="hidden">
+          <p>Este portal ajudou você a se sentir mais preparado(a) contra golpes digitais?</p>
+
+          <div id="erroFeedback" class="msg-erro hidden" role="alert"></div>
+
+          <form id="formFeedback">
+            <label>Sua nota (toque nas estrelas) *</label>
+            <div class="estrelas" role="radiogroup" aria-label="Nota de 1 a 5 estrelas">
+              <button type="button" class="estrela-btn" data-nota="1" aria-label="1 estrela">★</button>
+              <button type="button" class="estrela-btn" data-nota="2" aria-label="2 estrelas">★</button>
+              <button type="button" class="estrela-btn" data-nota="3" aria-label="3 estrelas">★</button>
+              <button type="button" class="estrela-btn" data-nota="4" aria-label="4 estrelas">★</button>
+              <button type="button" class="estrela-btn" data-nota="5" aria-label="5 estrelas">★</button>
+            </div>
+
+            <label for="comentarioFeedback">Deixe um comentário ou sugestão (opcional)</label>
+            <textarea id="comentarioFeedback" rows="3" placeholder="Ex.: Muito claro e fácil de usar, aprendi sobre a falsa central do banco!"></textarea>
+
+            <button type="submit" class="btn btn-primary" id="btnEnviarFeedback">Concluir e Enviar Avaliação</button>
+          </form>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ETAPA FINAL: Tela de Agradecimento -->
+    <section class="card tela-obrigado hidden" id="secaoAgradecimento" aria-live="polite">
+      <div class="icone-ok">✅</div>
+      <h2>Muito obrigado pela sua participação!</h2>
+      <p>Sua contribuição foi registrada com sucesso e ajuda diretamente a fortalecer a segurança digital na nossa comunidade.</p>
+
+      <div class="resumo-participacao">
+        <p><strong>Participante:</strong> <span id="obgNome"></span></p>
+        <p><strong>Desempenho no Quiz:</strong> <span id="obgQuiz"></span></p>
+        <p><strong>Avaliação enviada:</strong> <span id="obgNota"></span></p>
+        <p><strong>Registro em:</strong> <span id="obgData"></span></p>
+      </div>
+
+      <p>Você já pode fechar esta página. Se quiser, compartilhe o link do <strong>Escudo Digital</strong> com familiares e amigos!</p>
+
+      <div class="acoes-finais">
+        <p style="font-size: 0.88rem; color: var(--muted); margin: 0 0 0.75rem;">
+          Outra pessoa da família vai participar usando este mesmo aparelho?
+        </p>
+        <a href="./?novo=1" class="btn btn-outline">Registrar outra pessoa neste aparelho</a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    Projeto comunitário de Inclusão e Segurança Digital – Atividade Extensionista II (UNINTER)<br>
+    Alinhado aos ODS 4, 10 e 16 da ONU | <a href="admin.php">Área de Gestão</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

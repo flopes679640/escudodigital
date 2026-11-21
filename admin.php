@@ -201,7 +201,7 @@ function e(?string $v): string
                     <button type="submit" class="btn" style="width:100%;">Entrar</button>
                 </form>
                 <p style="text-align:center; margin-top:1rem; margin-bottom:0;">
-                    <a href="index.php?novo=1" style="color:#0d9488; font-weight:600; text-decoration:none;">← Voltar para o Portal</a>
+                    <a href="./?novo=1" style="color:#0d9488; font-weight:600; text-decoration:none;">← Voltar para o Portal</a>
                 </p>
             </div>
         <?php else: ?>
